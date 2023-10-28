@@ -4,55 +4,65 @@ import java.util.Scanner;
 
 public class Bai6_4 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // bắt đầu chương trình
+    	// khởi tạo scanner
         Scanner scanner = new Scanner(System.in);
 
-        // nhap thang 
+        // khởi tạo string tháng
         String inputMonth;
         do {
+        	// nhập tháng 
             System.out.print("Nhap thang: ");
             inputMonth = scanner.nextLine().toLowerCase();
-        } while (!isValidMonth(inputMonth));
+        } while (!isValidMonth(inputMonth)); // nếu không hợp lệ nhập lại
 
-        // nhap nam
+        // khởi tạo int năm
         int inputYear;
         do {
+        	// nhập năm
             System.out.print("Nhap nam: ");
-            while (!scanner.hasNextInt()) {
+            while (!scanner.hasNextInt()) { // không hợp lệ thì nhập lại
                 System.out.println("Nam khong hop le. Vui long nhap lai");
                 scanner.next(); 
             }
             inputYear = scanner.nextInt();
-        } while (inputYear < 0);
+        } while (inputYear < 0); // check xem năm có âm không
 
+        // đóng scanner
         scanner.close();
 
-        // doc so ngay trong thang tu thang va nam vua nhap
+        // đọc số ngày trong tháng từ dữ liệu vừa nhập
         int daysInMonth = getDaysInMonth(inputMonth, inputYear);
 
-        // hien thi ket qua
+        // hiển thị kết quả
         System.out.println("So ngay trong thang " + inputMonth + " " + inputYear + ": " + daysInMonth + " ngay");
     }
 
-    // fuction check xem thang vua nhap vao co hop le hay khong
+    // hàm kiểm tra tháng có hợp lệ không
     private static boolean isValidMonth(String month) {
+    	
+    	// các string hợp lệ cho tháng
         String[] validMonths = {"january", "jan.", "jan", "1", "february", "feb.", "feb", "2", "march", "mar.", "mar", "3",
                 "april", "apr.", "apr", "4", "may", "5", "june", "jun", "6", "july", "jul", "7", "august", "aug.", "aug",
                 "8", "september", "sep.", "sep", "9", "october", "oct.", "oct", "10", "november", "nov.", "nov", "11",
                 "december", "dec.", "dec", "12"};
-
+        
+        // nếu string tháng vừa nhập vào nằm trong validMonths thì hợp lệ
         for (String validMonth : validMonths) {
             if (month.equals(validMonth)) {
                 return true;
             }
         }
 
+        // in ra thông điệp yêu cầu nhập lại
         System.out.println("Thang khong hop le. Vui long nhap lai.");
         return false;
     }
 
-    // function de doc so ngay trong thang tu thang va nam vua nhap
+    // hàm đọc số ngày từ tháng và năm vừa nhập
     private static int getDaysInMonth(String month, int year) {
+    	
+    	// các trường hợp số ngày của tháng
         switch (month) {
             case "january", "jan.", "jan", "1", "march", "mar.", "mar", "3",
             "may", "5", "july", "jul", "7", "august", "aug.", "aug",
@@ -62,13 +72,13 @@ public class Bai6_4 {
             "sep.", "sep", "9", "november", "nov.", "nov", "11":
                 return 30;
             case "february", "feb.", "feb", "2":
-                return isLeapYear(year) ? 29 : 28;
+                return isLeapYear(year) ? 29 : 28; // nếu là năm nhuận thì tháng 2 có 29 ngày
             default:
-                return -1; // thang nhap vao khong hop le
+                return -1; // tháng vừa nhập không hợp lệ
         }
     }
 
-    // function check xem nam nhap vao co phai la nam nhuan
+    // hàm kiểm tra năm nhuận
     private static boolean isLeapYear(int year) {
         return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
     }

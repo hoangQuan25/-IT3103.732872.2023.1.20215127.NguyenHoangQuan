@@ -10,15 +10,17 @@ public class Bai6_3 {
         // nhap vao chieu cao cua tam giac
         System.out.print("Enter the height of the triangle: ");
         int n = scanner.nextInt();
+        // đóng scanner
         scanner.close();
 
-        // xay dung ham de in ra tam giac
+        // gọi hàm in ra tam giác
         printTriangle(n);
     }
 
+    // hàm in ra tam giác
     private static void printTriangle(int n) {
         for (int i = 1; i <= n; i++) {
-            // in ra khoang trong truoc moi dong
+            // in ra khoảng trống trước mỗi hàng
             for (int j = 1; j <= n - i; j++) {
                 System.out.print(" ");
             }
