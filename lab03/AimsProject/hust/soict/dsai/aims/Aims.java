@@ -1,5 +1,7 @@
-package lab03;
+package lab03.AimsProject.hust.soict.dsai.aims;
 
+import lab03.AimsProject.hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import lab03.AimsProject.hust.soict.dsai.aims.cart.Cart;
 public class Aims {
 	public static void main(String[] args) {
 		// tạo giỏ hàng

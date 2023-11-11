@@ -1,5 +1,6 @@
-package lab03;
+package lab03.AimsProject.hust.soict.dsai.aims.cart;
 
+import lab03.AimsProject.hust.soict.dsai.aims.disc.DigitalVideoDisc;
 public class Cart {
     public static final int MAX_NUMBERS_ORDERED = 20;
     

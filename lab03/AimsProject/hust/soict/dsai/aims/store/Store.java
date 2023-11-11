@@ -1,5 +1,6 @@
-package lab03;
+package lab03.AimsProject.hust.soict.dsai.aims.store;
 
+import lab03.AimsProject.hust.soict.dsai.aims.disc.DigitalVideoDisc;
 public class Store {
     private DigitalVideoDisc[] itemsInStore;
     private int itemCount;
