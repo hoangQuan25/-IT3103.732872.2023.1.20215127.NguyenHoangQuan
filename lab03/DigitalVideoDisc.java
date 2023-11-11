@@ -98,6 +98,12 @@ public class DigitalVideoDisc {
         nbDigitalVideoDiscs++;
         id = nbDigitalVideoDiscs;
     }
+
+	// New method to check if the title matches a given pattern
+    public boolean isMatch(String pattern) {
+        // Use the contains method to check if the title contains the specified pattern
+        return title.toLowerCase().contains(pattern.toLowerCase());
+    }
 	
 	// ham in ra thong tin dia
 	public String toString() {
@@ -105,7 +111,7 @@ public class DigitalVideoDisc {
     }
 
 	// // Test method for part 5 of this lab
-	
+
     // public static void main(String[] args) {
     //     // Create instances of DigitalVideoDisc to test the new attributes
     //     DigitalVideoDisc dvd1 = new DigitalVideoDisc("Title 1");

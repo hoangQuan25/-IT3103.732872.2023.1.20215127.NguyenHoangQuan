@@ -79,6 +79,57 @@ public class Cart {
         return total;
     }
     
+    // New method to print the list of ordered items, their details, and the total cost
+    public void printCart() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items:\n");
+
+        for (int i = 0; i < qtyOrdered; i++) {
+            System.out.println((i + 1) + ". DVD - " + itemsOrdered[i].toString());
+        }
+
+        System.out.println("\nTotal cost: " + totalCost() + " $\n");
+        System.out.println("***************************************************");
+    }
+
+    // New method to search for DVDs in the cart by ID and display the search results
+    public void searchByID(int id) {
+        System.out.println("Search Result for DVD with ID " + id + ":");
+
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].getId() == id) {
+                System.out.println("DVD - " + itemsOrdered[i].toString());
+                return; // Found a match, no need to continue searching
+            }
+        }
+
+        System.out.println("No match found for DVD with ID " + id);
+    }
+
+    // New method to search for DVDs in the cart by title and print the results
+    public void searchByTitle(String title) {
+        System.out.println("Search Result for DVDs with Title '" + title + "':");
+
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].isMatch(title)) {
+                System.out.println("DVD - " + itemsOrdered[i].toString());
+            }
+        }
+
+        if (noMatchFound(title)) {
+            System.out.println("No match found for DVDs with Title '" + title + "'");
+        }
+    }
+
+    // Helper method to check if there is no match for the given title
+    private boolean noMatchFound(String title) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemsOrdered[i].isMatch(title)) {
+                return false; // Found a match, no need to continue checking
+            }
+        }
+        return true; // No match found
+    }
     // hàm in thông tin tất cả các đĩa trong giỏ hàng (để kiểm tra sau khi xóa đĩa khỏi giỏ)
     public String toString() {
     	String result = "";
