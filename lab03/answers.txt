@@ -1,0 +1,14 @@
+    Trong Java, khi truyền một kiểu dữ liệu nguyên thủy (ví dụ: int, float, char, v.v.) vào một phương thức, 
+nó được truyền theo giá trị. Điều này có nghĩa là một bản sao của giá trị biến được truyền vào phương thức, 
+và bất kỳ thay đổi nào được thực hiện trên tham số bên trong phương thức không ảnh hưởng đến biến gốc bên 
+ngoài phương thức.
+
+    Khi truyền một đối tượng (bao gồm mảng) vào một phương thức, thì tham chiếu đến đối tượng được truyền 
+theo giá trị. Điều này có nghĩa là tham chiếu bản sao được sao chép, nhưng cả tham chiếu gốc và tham chiếu 
+sao chép vẫn trỏ đến cùng một đối tượng. Do đó, những thay đổi được thực hiện vào trạng thái đối tượng bên 
+trong phương thức sẽ phản ánh ra ngoài phương thức.
+
+    Tóm lại, Java được gọi là "pass-by-value" đối với kiểu dữ liệu nguyên thủy và tham chiếu đến đối tượng, nhưng 
+quan trọng là phải hiểu rằng khi truyền một đối tượng, bạn đang truyền một bản sao của tham chiếu, không 
+phải là đối tượng thực sự. 
+
