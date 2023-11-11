@@ -1,16 +1,20 @@
 package lab03;
 
 public class DigitalVideoDisc {
+	private static int nbDigitalVideoDiscs = 0;
+
 	private String title;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
+	private int id;
 	
 	
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
+		updateDiscCountAndId();
 	}
 	
 	
@@ -83,9 +87,34 @@ public class DigitalVideoDisc {
 	public float getCost() {
 		return cost;
 	}
+
+	// Additional getter for the "id" attribute
+    public int getId() {
+        return id;
+    }
+
+	// Helper method to update class attribute and assign the appropriate value for "id"
+    private void updateDiscCountAndId() {
+        nbDigitalVideoDiscs++;
+        id = nbDigitalVideoDiscs;
+    }
 	
 	// ham in ra thong tin dia
 	public String toString() {
         return "Title: " + title + ", Cost: $" + cost;
     }
+
+	// // Test method for part 5 of this lab
+	
+    // public static void main(String[] args) {
+    //     // Create instances of DigitalVideoDisc to test the new attributes
+    //     DigitalVideoDisc dvd1 = new DigitalVideoDisc("Title 1");
+    //     System.out.println("DVD ID: " + dvd1.getId());
+
+    //     DigitalVideoDisc dvd2 = new DigitalVideoDisc("Title 2");
+    //     System.out.println("DVD ID: " + dvd2.getId());
+        
+    //     // Print the total number of digital video discs created
+    //     System.out.println("Total DVDs created: " + nbDigitalVideoDiscs);
+    // }
 }
